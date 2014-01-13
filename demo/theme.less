@@ -1,0 +1,38 @@
+
+@color-base: #ffffff;
+
+@color-title: @color-base;
+@color-head: lighten_hsv(@color-base, 20%);
+@color-foot: lighten_hsv(@color-base, 50%);
+
+@color-border: lighten_hsv(@color-base, 45%);
+
+@color-btn-border: lighten_hsv(@color-base, 30%);
+@color-btn-pirmary: lighten_hsv(@color-base, 20%);
+
+
+.title {
+  background-color: @color-title;
+  border-top-color: @color-border;
+}
+
+.head {
+  background-color: @color-head;
+}
+
+.foot {
+  background: @color-foot;
+}
+
+.btn {
+  border: 1px solid @color-btn-border;
+  background-color: rgba(255, 255, 255, 0.6);;
+
+  &:hover {
+    background-color:rgba(255, 255, 255, 0.8);;
+  }
+
+  &.btn-primary {
+    border-color: @color-btn-pirmary;
+  }
+}

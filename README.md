@@ -37,10 +37,70 @@ js文件请从淘宝cdn上引用
 没有什么特别的
 
 #### theme.less
-主题文件，采用less的语法，具体的语法可以从 (less中国官网)[www.lesscss.net] 上学习。
+主题文件，采用less的语法，具体的语法可以从 [less中国官网](www.lesscss.net) 上学习。
 如果不熟悉less，可以完全按照css的写法写，只是将需要用到颜色的地方用变量代替
 theme.less 文件示例如下：
 
+    @color-base: #ffffff;
+
+    @color-title: @color-base;
+    @color-head: lighten_hsv(@color-base, 20%);
+    @color-foot: lighten_hsv(@color-base, 50%);
+
+    @color-border: lighten_hsv(@color-base, 45%);
+
+    @color-btn-border: lighten_hsv(@color-base, 30%);
+    @color-btn-pirmary: lighten_hsv(@color-base, 20%);
+
+
+    .title {
+      background-color: @color-title;
+      border-top-color: @color-border;
+    }
+
+    .head {
+      background-color: @color-head;
+    }
+
+    .foot {
+      background: @color-foot;
+    }
+
+    .btn {
+      border: 1px solid @color-btn-border;
+      background-color: rgba(255, 255, 255, 0.6);;
+
+      &:hover {
+        background-color:rgba(255, 255, 255, 0.8);;
+      }
+
+      &.btn-primary {
+        border-color: @color-btn-pirmary;
+      }
+    }
+
+先对less的变量做一点简单的讲解，上面的代码中 @开头的就是变量了
+其中最重要的就是 `@color-base` 这个变量，在换肤功能中，我们会替换这个变量的值，达到换肤的效果
+注意下面的一些变量定义：
+
+    @color-title: @color-base;
+    @color-head: lighten_hsv(@color-base, 20%);
+    @color-foot: lighten_hsv(@color-base, 50%);
+
+    @color-text: darken_hsv(@color-base, 80%);
+    @color-border: lighten_hsv(@color-base, 45%);
+
+    @color-btn-border: lighten_hsv(@color-base, 30%);
+    @color-btn-pirmary: lighten_hsv(@color-base, 20%);
+
+这些变量都是基于 `@color-base` 变量来生成的，其中用到了 `lighten_hsv` `darken_hsv` 函数
+目前可用的函数有less的全部标准函数（具体内容请查看less api），以及我们为了调颜色而添加的 lighten_hsv 和 darken_hsv 两个函数
+后续还会根据需要添加一些必要的函数
+
+在变量定义之后的less代码，定义了需要根据换肤设置来改变颜色的代码
+
+虽然可以直接将所有的样式都写在less里面，但是由于客户端编译less效率比较低，所以不建议这样做
+最好是将于主题颜色无关的css代码和主题相关的less代码分开来写
 
 
 
