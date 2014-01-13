@@ -6,8 +6,13 @@
 * base.css    页面的基本样式，不包括需要根据主题修改颜色的部分
 * theme.less  页面的主题文件，里面最好只包含颜色信息
 
-### 各个文件的内容
-#### index.html
+### 服务器的部署
+如果您使用了cdn，资源文件存放的位置和页面的域不一样，则需要给你您的cdn服务器进行一些配置，在response header 里加上
+`Access-Control-Allow-Origin:*`
+以保证您的less文件可以通过ajax访问得到
+
+## 各个文件的内容
+### index.html
 html里面需要引用到css，less文件以及支持换肤的js文件
 页面示例如下：
 
@@ -33,10 +38,10 @@ html里面需要引用到css，less文件以及支持换肤的js文件
 js文件请从淘宝cdn上引用
 在页面初始化过程中需要调用 QN.initTheme() 方法来初始化换肤功能
 
-#### base.css
+### base.css
 没有什么特别的
 
-#### theme.less
+### theme.less
 主题文件，采用less的语法，具体的语法可以从 [less中国官网](www.lesscss.net) 上学习。
 如果不熟悉less，可以完全按照css的写法写，只是将需要用到颜色的地方用变量代替
 theme.less 文件示例如下：
@@ -101,6 +106,18 @@ theme.less 文件示例如下：
 
 虽然可以直接将所有的样式都写在less里面，但是由于客户端编译less效率比较低，所以不建议这样做
 最好是将于主题颜色无关的css代码和主题相关的less代码分开来写
+
+## 可以使用的标准颜色
+目前可使用的标准颜色有
+@color-base
+
+## 其它
+
+刚写完的代码没弄到千牛的的话，可以在浏览器控制台里输入
+
+    less.modifyVars({'@color-base':"#faba31"});
+
+进行快速预览换肤
 
 
 
