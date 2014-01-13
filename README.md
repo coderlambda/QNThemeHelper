@@ -25,7 +25,7 @@ html里面需要引用到css，less文件以及支持换肤的js文件
     </head>
     <body>
     <!-- your page content here ... -->
-    <script type="text/javascript" src="http://g.tbcdn.cn/sj/qn/??jssdk,lib/js/less.js"></script>
+    <script type="text/javascript" src="http://g.tbcdn.cn/sj/qn/??jssdk.js,lib/js/less.js"></script>
     <script>
         window.onload = function(){
             QN.initTheme();
