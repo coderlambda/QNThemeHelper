@@ -69,52 +69,52 @@ lightness(color, light) 例如:
 
 theme.less 文件示例如下：
 
-   @color-base: #ffffff;
-   @palette-color-3: #ffffff;
+    @color-base: #ffffff;
+    @palette-color-3: #ffffff;
 
-   @color-sub-nav-background: lightness(@color-base, 0.98);
-   @color-sub-tab-active: @palette-color-3;
-   @theme-background-image: url(#);
+    @color-sub-nav-background: lightness(@color-base, 0.98);
+    @color-sub-tab-active: @palette-color-3;
+    @theme-background-image: url(#);
 
-   body {
-       background: @theme-background-image @base-color 0px -30px no-repeat;
-   }
+    body {
+        background: @theme-background-image @base-color 0px -30px no-repeat;
+    }
 
-   .page-header {
-     background: rgba(255, 255, 255, 0.25);
-   }
+    .page-header {
+      background: rgba(255, 255, 255, 0.25);
+    }
 
-   .main-nav-tab {
-     li {
-       &:hover {
-         background-color: rgba(255,255,255, 0.5);
-       }
+    .main-nav-tab {
+      li {
+        &:hover {
+          background-color: rgba(255,255,255, 0.5);
+        }
 
-       &.active {
-         background-color: rgba(0,0,0,0.3);
-         color: white;
-         box-shadow: inset 0 0 4px #666;
-       }
-     }
-   }
+        &.active {
+          background-color: rgba(0,0,0,0.3);
+          color: white;
+          box-shadow: inset 0 0 4px #666;
+        }
+      }
+    }
 
-   .content-area {
-     background-color: @color-sub-nav-background;
-     .content-wrap {
-       border-left: 1px solid #f2f4f6;
-       background-color: white;
-     }
-   }
+    .content-area {
+      background-color: @color-sub-nav-background;
+      .content-wrap {
+        border-left: 1px solid #f2f4f6;
+        background-color: white;
+      }
+    }
 
-   .sub-nav-tab {
-     &:hover {
-       background: lighten(@color-sub-tab-active, 4%);
-     }
+    .sub-nav-tab {
+      &:hover {
+        background: lighten(@color-sub-tab-active, 4%);
+      }
 
-     &.active {
-       background-color: @color-sub-tab-active;
-     }
-   }
+      &.active {
+        background-color: @color-sub-tab-active;
+      }
+    }
 
 先对less的变量做一点简单的讲解，上面的代码中 @开头的就是变量了
 其中最重要的就是 `@color-base` 这个变量，在换肤功能中，我们会替换这个变量的值，达到换肤的效果
